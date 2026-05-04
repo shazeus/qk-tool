@@ -9,7 +9,7 @@ A multi-OS CLI Swiss army knife for daily computer tasks. One command, nine modu
 ## Install
 
 ```bash
-pip install qk-tool
+pip install git+https://github.com/shazeus/qk-tool.git
 ```
 
 ## First Run
