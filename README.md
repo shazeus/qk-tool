@@ -6,6 +6,8 @@ A multi-OS CLI Swiss army knife for daily computer tasks. One command, nine modu
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20|%20Linux%20|%20Windows-lightgrey?style=flat-square)
 
+<img width="1555" height="828" alt="demo" src="https://github.com/user-attachments/assets/52a57e17-c540-42ad-b642-4c3466674e26" />
+
 ## Install
 
 ```bash
