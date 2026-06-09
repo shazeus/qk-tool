@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "qk-tool"
-version = "0.1.0"
+version = "0.1.1"
 description = "A multi-OS CLI Swiss army knife for daily computer tasks"
 readme = "README.md"
 license = "MIT"

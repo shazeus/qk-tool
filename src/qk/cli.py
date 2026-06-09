@@ -1,11 +1,32 @@
+import sys
+from typing import Annotated
+
 import typer
+
+from qk import __version__
 from qk.config import config_exists, is_module_enabled
 
 HELP_TEXT = "QK — Your Swiss army knife for daily computer tasks."
+SKIP_SETUP_FLAGS = {"--help", "--version", "--show-completion", "--install-completion"}
 
 
 def create_app(skip_setup: bool = False) -> typer.Typer:
     app = typer.Typer(name="qk", help=HELP_TEXT, no_args_is_help=True)
+
+    @app.callback(invoke_without_command=True)
+    def main(
+        version: Annotated[
+            bool,
+            typer.Option(
+                "--version",
+                help="Show the QK version and exit.",
+                is_eager=True,
+            ),
+        ] = False,
+    ) -> None:
+        if version:
+            typer.echo(f"qk-tool {__version__}")
+            raise typer.Exit()
 
     @app.command()
     def setup():
@@ -53,7 +74,7 @@ def create_app(skip_setup: bool = False) -> typer.Typer:
 
 
 def app_entry() -> None:
-    if not config_exists():
+    if not config_exists() and not any(arg in SKIP_SETUP_FLAGS for arg in sys.argv[1:]):
         from qk.setup_wizard import run_setup
         run_setup()
     app = create_app()

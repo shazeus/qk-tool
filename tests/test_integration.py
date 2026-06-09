@@ -1,5 +1,6 @@
 import json
 from typer.testing import CliRunner
+from qk import __version__
 from qk.cli import create_app
 
 runner = CliRunner()
@@ -37,3 +38,10 @@ def test_end_to_end_save_flow(tmp_path, monkeypatch):
     assert "test cmd" in result.output
     result = runner.invoke(app, ["save", "search", "test"])
     assert "test cmd" in result.output
+
+
+def test_version_flag_returns_package_version():
+    app = create_app(skip_setup=True)
+    result = runner.invoke(app, ["--version"])
+    assert result.exit_code == 0
+    assert f"qk-tool {__version__}" in result.output

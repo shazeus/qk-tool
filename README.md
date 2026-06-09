@@ -12,6 +12,7 @@ A multi-OS CLI Swiss army knife for daily computer tasks. One command, nine modu
 
 ```bash
 pip install qk-tool
+qk --version
 ```
 
 ## First Run
